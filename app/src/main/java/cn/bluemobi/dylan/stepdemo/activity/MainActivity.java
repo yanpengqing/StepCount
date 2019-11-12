@@ -68,12 +68,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupService() {
         Intent intent = new Intent(this, StepService.class);
         isBind = bindService(intent, conn, Context.BIND_AUTO_CREATE);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            startForegroundService(intent);
-//        } else {
-//            startService(intent);
-//        }
-        startService(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent);
+        } else {
+            startService(intent);
+        }
+//        startService(intent);
     }
 
     /**
